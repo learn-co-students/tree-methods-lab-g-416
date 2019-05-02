@@ -24,7 +24,9 @@ describe('#inOrder', function() {
 
     let tree = new BinaryTree()
     tree.root = n5
-    tree.inOrder(node)
+    tree.inOrder()
+
+    console.log('tree', tree)
 
     expect(console.log).toHaveBeenCalledWith(3)
     expect(console.log).toHaveBeenCalledWith(5)
@@ -40,8 +42,8 @@ describe('#findOrAdd', function() {
     tree.findOrAdd(3)
     tree.findOrAdd(7)
 
-    expect(tree.root.left).toEqual(3)
-    expect(tree.root.right).toEqual(7)
+    expect(tree.root.left.data).toEqual(3)
+    expect(tree.root.right.data).toEqual(7)
   });
 
   it("should add new elements on a multilevel tree", function() {
