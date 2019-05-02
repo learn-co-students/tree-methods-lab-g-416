@@ -1,6 +1,8 @@
 var chai = require('chai');
 var sinon = require('sinon');
 
+let {TreeNode, BinaryTree} = require('../index.js')
+
 beforeEach(function() {
   expect.spyOn(console, 'log')
 })
@@ -11,12 +13,19 @@ afterEach(function() {
 
 describe('#inOrder', function() {
   it("prints out the data in the node from lowest to highest", function() {
-    let node = {data: 5, left:
-                      {data: 3, left: null, right: null},
-                        right: {data: 7, left: null,
-                        right: {data: 9, left: null, right: null}
-                      }}
-    inOrder(node)
+    let n5 = new TreeNode(5)
+    let n3 = new TreeNode(3)
+    let n7 = new TreeNode(7)
+    let n9 = new TreeNode(9)
+
+    n5.left = n3
+    n5.right = n7
+    n7.right = n9
+
+    let tree = new BinaryTree()
+    tree.root = n5
+    tree.inOrder(node)
+
     expect(console.log).toHaveBeenCalledWith(3)
     expect(console.log).toHaveBeenCalledWith(5)
     expect(console.log).toHaveBeenCalledWith(7)
@@ -26,59 +35,60 @@ describe('#inOrder', function() {
 
 describe('#findOrAdd', function() {
   it("should add the presented node if the data does not already exist", function() {
-    let rootNode = {data: 5, left: null, right: null}
-    let firstNewNode = {data: 3, left: null, right: null}
-    let secondNewNode = {data: 7, left: null, right: null}
-    findOrAdd(rootNode, firstNewNode)
-    findOrAdd(rootNode, secondNewNode)
-    expect(rootNode.left).toEqual(firstNewNode)
-    expect(rootNode.right).toEqual(secondNewNode)
+    let tree = new BinaryTree()
+    tree.findOrAdd(5)
+    tree.findOrAdd(3)
+    tree.findOrAdd(7)
+
+    expect(tree.root.left).toEqual(3)
+    expect(tree.root.right).toEqual(7)
   });
 
   it("should add new elements on a multilevel tree", function() {
-    let rootNode = {data: 5, left: null, right: null}
-    let firstNewNode = {data: 3, left: null, right: null}
-    let secondNewNode = {data: 7, left: null, right: null}
-    let thirdNewNode = {data: 9, left: null, right: null}
-    findOrAdd(rootNode, firstNewNode)
-    findOrAdd(rootNode, secondNewNode)
-    expect(rootNode.left).toEqual(firstNewNode)
-    expect(rootNode.right).toEqual(secondNewNode)
-    findOrAdd(rootNode, thirdNewNode)
-    expect(rootNode.right.right).toEqual(thirdNewNode)
+    let tree = new BinaryTree()
+    tree.findOrAdd(5)
+    tree.findOrAdd(3)
+    tree.findOrAdd(7)
+
+    expect(tree.root.left.data).toEqual(3)
+    expect(tree.root.right.data).toEqual(7)
+
+    tree.findOrAdd(9)
+    expect(tree.root.right.right.data).toEqual(9)
   });
 
   it("should return true if the and not modify the tree if the element exists", function(){
-    let rootNode = {data: 5, left: null, right: null}
-    let firstNewNode = {data: 3, left: null, right: null}
-    let secondNewNode = {data: 7, left: null, right: null}
-    let thirdNewNode = {data: 9, left: null, right: null}
-    findOrAdd(rootNode, firstNewNode)
-    findOrAdd(rootNode, secondNewNode)
-    findOrAdd(rootNode, thirdNewNode)
-    let result = findOrAdd(rootNode, thirdNewNode)
+    let tree = new BinaryTree()
+    tree.findOrAdd(5)
+    tree.findOrAdd(3)
+    tree.findOrAdd(7)
+    tree.findOrAdd(9)
+
+    let result = tree.findOrAdd(9)
     expect(result).toEqual(true)
   })
 });
 
 describe('#max', function() {
   it("should return the maximum element in a tree", function(){
-    let node = {data: 5, left:
-                      {data: 3, left: null, right: null},
-                        right: {data: 7, left: null,
-                        right: {data: 9, left: null, right: null}
-                      }}
-  expect(max(node).data).toEqual(9)
+    let tree = new BinaryTree()
+    tree.findOrAdd(5)
+    tree.findOrAdd(3)
+    tree.findOrAdd(7)
+    tree.findOrAdd(9)
+
+    expect(tree.max(node)).toEqual(9)
   })
 })
 
 describe('#min', function() {
   it("should return the minimum element in a tree", function(){
-    let node = {data: 5, left:
-                      {data: 3, left: null, right: null},
-                        right: {data: 7, left: null,
-                        right: {data: 9, left: null, right: null}
-                      }}
-    expect(min(node).data).toEqual(3)
+    let tree = new BinaryTree()
+    tree.findOrAdd(5)
+    tree.findOrAdd(3)
+    tree.findOrAdd(7)
+    tree.findOrAdd(9)
+
+    expect(tree.min(node)).toEqual(3)
   })
 })

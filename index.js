@@ -43,3 +43,5 @@ class BinaryTree {
 
   }
 }
+
+module.exports = {TreeNode, BinaryTree}
