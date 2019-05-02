@@ -101,7 +101,9 @@ class BinaryTree {
 
 Try this out in the console and see that it works.  Trace through the logic in your head again, and try to deconstruct what is occurring if still unclear to you.
 
-Now you can move on to complete the rest of the tests.  Don't worry the rest of the problems are not as difficult as discovering inOrder.  
+Now you can move on to complete the rest of the tests.  Don't worry the rest of the problems are not as difficult as discovering inOrder.
+
+Implement the empty stubbed-out methods pre-written on the `BinaryTree` class.
 
 Good luck!
 

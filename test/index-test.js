@@ -9,7 +9,6 @@ afterEach(function() {
   expect.restoreSpies()
 })
 
-
 describe('#inOrder', function() {
   it("prints out the data in the node from lowest to highest", function() {
     let node = {data: 5, left:
