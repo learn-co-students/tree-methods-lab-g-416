@@ -1,10 +1,10 @@
 ## Tree Methods
 
-Now that we have seen some of the benefits of trees, we should become familiar with using them.  Just as we are familiar with using arrays and linked lists.  In the following lab, you will implement methods to print out the nodes of a tree in order, and find the maximum and minimum.  
+Now that we have seen some of the benefits of trees, we should become familiar with using them.  Just as we are familiar with using arrays and linked lists.  In the following lab, you will implement methods to print out the nodes of a tree in order, and find the maximum and minimum values in the tree.
 
 ### In Order, together
 
-Let's write the inOrder method together.  Here's what this method will do, given a root node, the inOrder method will `console.log` all of the other nodes in a tree, in sequential order.  How do we do something like this?
+Let's write the inOrder method together.  Here's what this method will do, given a root node, the inOrder method will `console.log` all of the other nodes in a tree, in sequential order, from lowest to highest.  How do we do something like this?
 
 1. Problem solve with an example (in a diagram)  
 
@@ -18,7 +18,7 @@ Well first let's give ourselves an example and stay away from code.  Here is a d
   \
    4
   /  \
- 2   5  
+ 2    5  
 ```
 
 Ok so let's try to figure out this method by virtue of the characteristics of a binary search tree.  Remember that the rules of a binary search tree says that everything to the left of a node is smaller than every node on a branch to the right.  Let's simplify our tree a little.    
@@ -46,7 +46,7 @@ Let's try again.  Instead of the node to the left, we can have the branch to the
  Seems like we might be onto something.
  
  ```text 
- inOrder = inOrder(Right branch), root node, inOrder(left branch)
+ inOrder = inOrder(left branch), root node, inOrder(right branch)
  ```
  
  Let's move back to our original data structure.
@@ -66,13 +66,35 @@ Ok, so we say the definition of in order is really, the inOrder of everything to
 Let's try to translate this into code.  
 
 ```javascript
-function inOrder(currentNode){
-  if(currentNode.left){
-    inOrder(currentNode.left)
+class TreeNode {
+  constructor(data) {
+    this.data = data
+    this.left = null
+    this.right = null
   }
-  console.log(currentNode.data)
-  if(currentNode.right){
-    inOrder(currentNode.right)
+}
+
+class BinaryTree {
+  constructor() {
+    this.root = null
+  }
+
+  // "public" method so users don't have to pass .root in themselves.
+  inOrder() {
+    this._inOrder(this.root)
+  }
+
+  // "private" parameterized helper method
+  _inOrder(node) {
+    // simply do nothing if we ever reach a spot where there's no node.
+    if (node === null) {
+      return
+    }
+
+    // traverse down to the left, then print the current node, then go right.
+    this._inOrder(node.left)
+    console.log(node.data)
+    this._inOrder(node.right)
   }
 }
 ```
