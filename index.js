@@ -1,16 +1,25 @@
-const inOrder = node => {
+// const inOrder = node => {
+//   if (node.left) {
+//     inOrder(node.left)
+//     if (node.right) {
+//       console.log(node.data)
+//       inOrder(node.right)
+//     }
+//   } else if (node.right) {
+//     console.log(node.data)
+//     inOrder(node.right)
+//   } else {
+//     console.log(node.data)
+//   }
+// }
 
+const inOrder = node => {
   if (node.left) {
     inOrder(node.left)
-    if (node.right) {
-      console.log(node.data)
-      inOrder(node.right)
-    }
-  } else if (node.right) {
-    console.log(node.data)
+  }
+  console.log(node.data)
+  if (node.right) {
     inOrder(node.right)
-  } else {
-    console.log(node.data)
   }
 }
 
