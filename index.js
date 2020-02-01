@@ -11,21 +11,26 @@ function inOrder(rootNode) {
 
 function findOrAdd(rootNode, newNode) {
   let currentNode = rootNode
+
   if (newNode.data < currentNode.data ) {
     currentNode = rootNode.left
     if (currentNode) {
       return findOrAdd(currentNode, newNode)
     } else {
-      rootNode.left = newNode
+      return rootNode.left = newNode
     }
-  } else if (newNode.data > currentNode.data) {
+  }
+
+  if (newNode.data > currentNode.data) {
     currentNode = rootNode.right
     if (currentNode) {
       return findOrAdd(currentNode, newNode)
     } else {
-      rootNode.right = newNode
+      return rootNode.right = newNode
     }
-  } else if (currentNode.data == newNode.data) {
+  }
+
+  if (currentNode.data == newNode.data) {
     return true
   }
 }
