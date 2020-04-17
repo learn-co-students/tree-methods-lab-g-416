@@ -17,21 +17,21 @@ function inOrder(currentNode) {
 
 function findOrAdd(currentNode, newNode) {
     if (currentNode.data == newNode.data) {
-        return true
+        return true;
     }
     if (newNode.data < currentNode.data) {
         if (currentNode.left) {
-            return findOrAdd(currentNode.left, newNode)
+            return findOrAdd(currentNode.left, newNode);
         } else {
-            return currentNode.left = newNode
+            return currentNode.left = newNode;
         }
     }
 
     if (newNode.data > currentNode.data) {
         if (currentNode.right) {
-            return findOrAdd(currentNode.right, newNode)
+            return findOrAdd(currentNode.right, newNode);
         } else {
-            return currentNode.right = newNode
+            return currentNode.right = newNode;
         }
     }
 }
@@ -39,16 +39,16 @@ function findOrAdd(currentNode, newNode) {
 
 function max(currentNode) {
     if (currentNode.right) {
-        return max(currentNode.right) 
+        return max(currentNode.right);
     } else {
-        return currentNode
+        return currentNode;
     }
 }
 
 function min(currentNode) {
     if (currentNode.left) {
-        return min(currentNode.left)
+        return min(currentNode.left);
     } else {
-        return currentNode
+        return currentNode;
     }
 }
