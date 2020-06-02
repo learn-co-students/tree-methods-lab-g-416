@@ -53,7 +53,7 @@ describe('#findOrAdd', function() {
     let rootNode = {data: 5, left: null, right: null}
     let firstNewNode = {data: 3, left: null, right: null}
     let secondNewNode = {data: 7, left: null, right: null}
-    let thirdNewNode = {data: 9, left: null, right: null}
+    let thirdNewNode = {data: 3, left: null, right: null}
     findOrAdd(rootNode, firstNewNode)
     findOrAdd(rootNode, secondNewNode)
     findOrAdd(rootNode, thirdNewNode)
