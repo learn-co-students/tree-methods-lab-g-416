@@ -49,7 +49,7 @@ describe('#findOrAdd', function() {
     expect(rootNode.right.right).toEqual(thirdNewNode)
   });
 
-  it("should return true if the and not modify the tree if the element exists", function(){
+  it("should return true and not modify the tree if the element exists", function(){
     let rootNode = {data: 5, left: null, right: null}
     let firstNewNode = {data: 3, left: null, right: null}
     let secondNewNode = {data: 7, left: null, right: null}
