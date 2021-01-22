@@ -44,3 +44,11 @@ function max(rootNode) {
         return max(rootNode.right)
     }
 }
+
+function min(rootNode) {
+    if (!rootNode.left) {
+        return rootNode;
+    } else {
+        return min(rootNode.left)
+    }
+}
