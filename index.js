@@ -36,3 +36,11 @@ function findOrAdd(rootNode, newNode) {
         }
     }
 }
+
+function max(rootNode) {
+    if (!rootNode.right) {
+        return rootNode;
+    } else {
+        return max(rootNode.right)
+    }
+}
