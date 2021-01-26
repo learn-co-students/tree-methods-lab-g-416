@@ -64,11 +64,21 @@ describe('#findOrAdd', function() {
 
 describe('#max', function() {
   it("should return the maximum element in a tree", function(){
-    let node = {data: 5, left:
-                      {data: 3, left: null, right: null},
-                        right: {data: 7, left: null,
-                        right: {data: 9, left: null, right: null}
-                      }}
+    let node = {
+      data: 5, 
+      left: {
+        data: 3, left: null, right: null
+      },
+      right: {
+        data: 7, 
+        left: null,
+        right: {
+          data: 9, 
+          left: null, 
+          right: null
+        }
+      }
+    }
   expect(max(node).data).toEqual(9)
   })
 })
