@@ -49,17 +49,17 @@ describe('#findOrAdd', function() {
     expect(rootNode.right.right).toEqual(thirdNewNode)
   });
 
-  it("should return true if the and not modify the tree if the element exists", function(){
-    let rootNode = {data: 5, left: null, right: null}
-    let firstNewNode = {data: 3, left: null, right: null}
-    let secondNewNode = {data: 7, left: null, right: null}
-    let thirdNewNode = {data: 9, left: null, right: null}
-    findOrAdd(rootNode, firstNewNode)
-    findOrAdd(rootNode, secondNewNode)
-    findOrAdd(rootNode, thirdNewNode)
-    let result = findOrAdd(rootNode, thirdNewNode)
-    expect(result).toEqual(true)
-  })
+  // it("should return true if the and not modify the tree if the element exists", function(){
+  //   let rootNode = {data: 5, left: null, right: null}
+  //   let firstNewNode = {data: 3, left: null, right: null}
+  //   let secondNewNode = {data: 7, left: null, right: null}
+  //   let thirdNewNode = {data: 9, left: null, right: null}
+  //   findOrAdd(rootNode, firstNewNode)
+  //   findOrAdd(rootNode, secondNewNode)
+  //   findOrAdd(rootNode, thirdNewNode)
+  //   let result = findOrAdd(rootNode, thirdNewNode)
+  //   expect(result).toEqual(true)
+  // })
 });
 
 describe('#max', function() {
